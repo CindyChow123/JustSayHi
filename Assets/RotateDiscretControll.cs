@@ -10,14 +10,24 @@ public class RotateDiscretControll : MonoBehaviour
     public int curIndex;
     public float horizontalInput;
     private bool hasKeyDown;
+    private SelectManager selectManager;
     void Start()
     {
         curIndex = 0;
         hasKeyDown = false;
+        selectManager = gameObject.GetComponentInParent<SelectManager>();
     }
 
     // Update is called once per frame
     void Update()
+    {
+        if (selectManager.selected == gameObject)
+        {
+            checkKeyPress();
+        }
+    }
+
+    void checkKeyPress()
     {
         horizontalInput = Input.GetAxis("Horizontal");
         if (!hasKeyDown)
@@ -38,12 +48,6 @@ public class RotateDiscretControll : MonoBehaviour
         {
             hasKeyDown = false;
         }
-        
-    }
-
-    void OnKeyDown(KeyDownEvent ev)
-    {
-        Debug.Log("KeyDown" + ev.keyCode);
     }
     
     int changeIndex(int curIndex, bool add)

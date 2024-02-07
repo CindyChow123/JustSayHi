@@ -10,14 +10,13 @@ public class ClickChoose : MonoBehaviour
     private Camera mycam;
     public GameObject receiver;
     public GameObject pivotLeft;
-    private Renderer renderer;
+    private SelectManager selectManager;
     void Start()
     {
         isSelected = false;
         mycam = Camera.main;
         collider = receiver.GetComponent<Collider2D>();
-        renderer = collider.gameObject.GetComponent<Renderer>();
-
+        selectManager = gameObject.GetComponentInParent<SelectManager>();
     }
 
     // Update is called once per frame
@@ -28,9 +27,10 @@ public class ClickChoose : MonoBehaviour
         {
             if (collider == Physics2D.OverlapPoint(mousePos))
             {
+                // Set as selected gameobject
                 float preZ = pivotLeft.transform.rotation.z;
                 // Highlight the bar using color 1
-                renderer.material.SetColor("_Color", Color.grey);
+                selectManager.setSelected(gameObject);
                 // Display the remaining rotational steps
 
                 // Minus steps one if they rotate
