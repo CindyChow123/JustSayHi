@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -13,7 +14,7 @@ public class RotateDiscretControll : MonoBehaviour
     private SelectManager selectManager;
     void Start()
     {
-        curIndex = 0;
+        curIndex = Convert.ToInt32(transform.eulerAngles.z / 45);
         hasKeyDown = false;
         selectManager = gameObject.GetComponentInParent<SelectManager>();
     }
@@ -32,16 +33,14 @@ public class RotateDiscretControll : MonoBehaviour
         horizontalInput = Input.GetAxis("Horizontal");
         if (!hasKeyDown)
         {
-            if (horizontalInput > 0)
+            if (horizontalInput < 0)
             {
                 curIndex = changeIndex(curIndex, true);
-                transform.Rotate(new Vector3(0,0,45));
-            }else if (horizontalInput < 0)
+            }else if (horizontalInput > 0)
             {
                 curIndex = changeIndex(curIndex, false);
-                transform.Rotate(new Vector3(0,0,-45));
             }
-
+            transform.eulerAngles = new Vector3(0, 0, curIndex * 45);
             hasKeyDown = true;
         }
         if(horizontalInput == 0)
@@ -54,7 +53,7 @@ public class RotateDiscretControll : MonoBehaviour
     {
         if (add)
         {
-            if (curIndex == 8)
+            if (curIndex == 7)
             {
                 curIndex = 0;
             }
@@ -67,7 +66,7 @@ public class RotateDiscretControll : MonoBehaviour
         {
             if (curIndex == 0)
             {
-                curIndex = 8;
+                curIndex = 7;
             }
             else
             {
