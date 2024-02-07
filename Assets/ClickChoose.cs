@@ -11,8 +11,10 @@ public class ClickChoose : MonoBehaviour
     public GameObject receiver;
     public GameObject pivotLeft;
     private SelectManager selectManager;
+    public int remainStep;
     void Start()
     {
+        remainStep = 5;
         isSelected = false;
         mycam = Camera.main;
         collider = receiver.GetComponent<Collider2D>();

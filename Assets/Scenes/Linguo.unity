@@ -497,6 +497,7 @@ MonoBehaviour:
   isSelected: 0
   receiver: {fileID: 61838088}
   pivotLeft: {fileID: 80880906}
+  remainStep: 0
 --- !u!114 &80880909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2691,6 +2692,7 @@ MonoBehaviour:
   isSelected: 0
   receiver: {fileID: 1349999594}
   pivotLeft: {fileID: 733387899}
+  remainStep: 0
 --- !u!4 &756081124
 Transform:
   m_ObjectHideFlags: 0
@@ -3092,7 +3094,7 @@ GameObject:
   - component: {fileID: 912704844}
   - component: {fileID: 912704843}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Number
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3114,7 +3116,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2, y: 179}
+  m_AnchoredPosition: {x: -4, y: 176}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &912704843
@@ -3137,7 +3139,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: N
+  m_text: '*'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3447,7 +3449,7 @@ Transform:
   m_GameObject: {fileID: 967210058}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.33, y: 4.49, z: 0.03513}
+  m_LocalPosition: {x: -0.4, y: 4.49, z: 0.03513}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5135,6 +5137,7 @@ MonoBehaviour:
   isSelected: 0
   receiver: {fileID: 1431409812}
   pivotLeft: {fileID: 1544569828}
+  remainStep: 0
 --- !u!114 &1544569831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5447,9 +5450,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 967210059}
   - {fileID: 271602125}
   - {fileID: 2130080096}
-  - {fileID: 967210059}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1610858323
@@ -5465,6 +5468,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selected: {fileID: 0}
+  stepNum: {fileID: 0}
 --- !u!1 &1614171784
 GameObject:
   m_ObjectHideFlags: 0
@@ -5613,6 +5617,7 @@ MonoBehaviour:
   isSelected: 0
   receiver: {fileID: 62342921}
   pivotLeft: {fileID: 1614329089}
+  remainStep: 0
 --- !u!1 &1633491371
 GameObject:
   m_ObjectHideFlags: 0
