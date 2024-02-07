@@ -243,7 +243,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -165, y: -100}
+  m_AnchoredPosition: {x: -179, y: 172}
   m_SizeDelta: {x: 80, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &142274024
@@ -3514,12 +3514,12 @@ GameObject:
   - component: {fileID: 1169049957}
   - component: {fileID: 1169049956}
   m_Layer: 5
-  m_Name: InputI
+  m_Name: InputH
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1169049956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3596,7 +3596,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 142274023}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1610858322}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4621,6 +4621,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 271602125}
+  - {fileID: 1169049959}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1614171784
@@ -5800,6 +5801,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSelected: 0
   receiver: {fileID: 1349999594}
+  pivotLeft: {fileID: 733387899}
 --- !u!1001 &848701214829049408
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5925,7 +5927,6 @@ SceneRoots:
   - {fileID: 1091458571}
   - {fileID: 580110533}
   - {fileID: 316345341}
-  - {fileID: 1169049959}
   - {fileID: 597680761}
   - {fileID: 1605893950}
   - {fileID: 1004289206}
