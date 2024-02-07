@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -10,47 +11,53 @@ public class RotateDiscretControll : MonoBehaviour
     public int curIndex;
     public float horizontalInput;
     private bool hasKeyDown;
+    private SelectManager selectManager;
+    private ClickChoose _clickChoose;
     void Start()
     {
-        curIndex = 0;
+        curIndex = Convert.ToInt32(transform.eulerAngles.z / 45);
         hasKeyDown = false;
+        selectManager = gameObject.GetComponentInParent<SelectManager>();
+        _clickChoose = gameObject.GetComponent<ClickChoose>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        horizontalInput = Input.GetAxis("Horizontal");
-        if (!hasKeyDown)
+        if (selectManager.selected == gameObject)
         {
-            if (horizontalInput > 0)
+            checkKeyPress();
+        }
+    }
+
+    void checkKeyPress()
+    {
+        horizontalInput = Input.GetAxis("Horizontal");
+        if (_clickChoose.remainStep>0 && !hasKeyDown)
+        {
+            if (horizontalInput < 0)
             {
                 curIndex = changeIndex(curIndex, true);
-                transform.Rotate(new Vector3(0,0,45));
-            }else if (horizontalInput < 0)
+                _clickChoose.remainStep -= 1;
+            }else if (horizontalInput > 0)
             {
                 curIndex = changeIndex(curIndex, false);
-                transform.Rotate(new Vector3(0,0,-45));
+                _clickChoose.remainStep -= 1;
             }
-
+            transform.eulerAngles = new Vector3(0, 0, curIndex * 45);
             hasKeyDown = true;
         }
         if(horizontalInput == 0)
         {
             hasKeyDown = false;
         }
-        
-    }
-
-    void OnKeyDown(KeyDownEvent ev)
-    {
-        Debug.Log("KeyDown" + ev.keyCode);
     }
     
     int changeIndex(int curIndex, bool add)
     {
         if (add)
         {
-            if (curIndex == 8)
+            if (curIndex == 7)
             {
                 curIndex = 0;
             }
@@ -63,7 +70,7 @@ public class RotateDiscretControll : MonoBehaviour
         {
             if (curIndex == 0)
             {
-                curIndex = 8;
+                curIndex = 7;
             }
             else
             {
