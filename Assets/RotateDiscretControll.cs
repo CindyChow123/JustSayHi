@@ -85,4 +85,10 @@ public class RotateDiscretControll : MonoBehaviour
 
         return curIndex;
     }
+
+    public void setIndex(int index)
+    {
+        curIndex = index;
+        transform.eulerAngles = new Vector3(0, 0, curIndex * 45);
+    }
 }

@@ -57,7 +57,7 @@ public class SelectManager : MonoBehaviour
     {
         for (int i = 0;i<barsRotate.Length;i++)
         {
-            barsRotate[i].curIndex = initialAngles[i];
+            barsRotate[i].setIndex(initialAngles[i]);
         }
     }
     public void checkWin()
