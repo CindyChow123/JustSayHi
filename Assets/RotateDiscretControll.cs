@@ -14,10 +14,12 @@ public class RotateDiscretControll : MonoBehaviour
     private SelectManager selectManager;
     public ClickChoose clickChoose;
     public int remainStep;
+    public int initStep;
 
     void Start()
     {
-        remainStep = 5;
+        initStep = 5;
+        remainStep = initStep;
         curIndex = Convert.ToInt32(transform.eulerAngles.z / 45);
         hasKeyDown = false;
         selectManager = gameObject.GetComponentInParent<SelectManager>();

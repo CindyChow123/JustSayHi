@@ -513,6 +513,7 @@ MonoBehaviour:
   horizontalInput: 0
   clickChoose: {fileID: 0}
   remainStep: 0
+  initStep: 0
 --- !u!1 &93337114
 GameObject:
   m_ObjectHideFlags: 0
@@ -1431,6 +1432,7 @@ MonoBehaviour:
   horizontalInput: 0
   clickChoose: {fileID: 0}
   remainStep: 0
+  initStep: 0
 --- !u!1 &501410206
 GameObject:
   m_ObjectHideFlags: 0
@@ -1867,7 +1869,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1610858323}
         m_TargetAssemblyTypeName: SelectManager, Assembly-CSharp
-        m_MethodName: checkWin
+        m_MethodName: restart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2815,6 +2817,7 @@ MonoBehaviour:
   horizontalInput: 0
   clickChoose: {fileID: 0}
   remainStep: 0
+  initStep: 0
 --- !u!114 &733387902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3338,6 +3341,7 @@ MonoBehaviour:
   horizontalInput: 0
   clickChoose: {fileID: 0}
   remainStep: 0
+  initStep: 0
 --- !u!4 &874234516
 Transform:
   m_ObjectHideFlags: 0
@@ -5898,6 +5902,7 @@ MonoBehaviour:
   horizontalInput: 0
   clickChoose: {fileID: 0}
   remainStep: 0
+  initStep: 0
 --- !u!1 &1552138890
 GameObject:
   m_ObjectHideFlags: 0
@@ -6355,6 +6360,7 @@ MonoBehaviour:
   horizontalInput: 0
   clickChoose: {fileID: 0}
   remainStep: 0
+  initStep: 0
 --- !u!114 &1614329092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6777,6 +6783,7 @@ MonoBehaviour:
   horizontalInput: 0
   clickChoose: {fileID: 0}
   remainStep: 0
+  initStep: 0
 --- !u!1 &1765465040
 GameObject:
   m_ObjectHideFlags: 0
