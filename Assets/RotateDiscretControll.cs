@@ -12,13 +12,16 @@ public class RotateDiscretControll : MonoBehaviour
     public float horizontalInput;
     private bool hasKeyDown;
     private SelectManager selectManager;
-    private ClickChoose _clickChoose;
+    public ClickChoose clickChoose;
+    public int remainStep;
+
     void Start()
     {
+        remainStep = 5;
         curIndex = Convert.ToInt32(transform.eulerAngles.z / 45);
         hasKeyDown = false;
         selectManager = gameObject.GetComponentInParent<SelectManager>();
-        _clickChoose = gameObject.GetComponent<ClickChoose>();
+        clickChoose = gameObject.GetComponent<ClickChoose>();
     }
 
     // Update is called once per frame
@@ -33,16 +36,16 @@ public class RotateDiscretControll : MonoBehaviour
     void checkKeyPress()
     {
         horizontalInput = Input.GetAxis("Horizontal");
-        if (_clickChoose.remainStep>0 && !hasKeyDown)
+        if (remainStep>0 && !hasKeyDown)
         {
             if (horizontalInput < 0)
             {
                 curIndex = changeIndex(curIndex, true);
-                _clickChoose.remainStep -= 1;
+                remainStep -= 1;
             }else if (horizontalInput > 0)
             {
                 curIndex = changeIndex(curIndex, false);
-                _clickChoose.remainStep -= 1;
+                remainStep -= 1;
             }
             transform.eulerAngles = new Vector3(0, 0, curIndex * 45);
             hasKeyDown = true;
