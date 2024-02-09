@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
+
 
 /*[0,1,2,3,4,5,6,7] = [0,45,90,135,180,225,270,315]
  * Level HI initial angle index
@@ -24,7 +26,7 @@ public class SelectManager : MonoBehaviour
     public int[] winAngles; // Set in the hierarchy for each level
     private ClickChoose clickChoose;
     private RotateDiscretControll rotateDiscret;
-
+    [SerializeField] private UnityEvent lose;
     public TMP_Text stepNum;
     public GameObject StepUsedup;
     // Start is called before the first frame update
@@ -71,8 +73,19 @@ public class SelectManager : MonoBehaviour
                 break;
             }
         }
-        if(win) Debug.Log("YOU WIN!");
-        else Debug.Log("YOU LOSE!");
+
+        if (win)
+        {
+            Debug.Log("YOU WIN!");
+            StepUsedup.gameObject.SetActive(false);
+            lose.Invoke();
+        }
+        else
+        {
+            Debug.Log("YOU LOSE!");
+            StepUsedup.gameObject.SetActive(false);
+            lose.Invoke();
+        }
     }
 
     public bool checkEnd()
@@ -86,7 +99,8 @@ public class SelectManager : MonoBehaviour
                 break;
             }
         }
-
+        StepUsedup.gameObject.SetActive(false);
+        lose.Invoke();
         return ended;
     }
 
