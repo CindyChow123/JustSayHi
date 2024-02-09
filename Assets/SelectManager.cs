@@ -57,7 +57,7 @@ public class SelectManager : MonoBehaviour
     {
         for (int i = 0;i<barsRotate.Length;i++)
         {
-            barsRotate[i].curIndex = initialAngles[i];
+            barsRotate[i].setIndex(initialAngles[i]);
         }
     }
     public void checkWin()
@@ -102,5 +102,16 @@ public class SelectManager : MonoBehaviour
         clickChoose = rotateDiscret.clickChoose;
         Renderer renderer = clickChoose.receiver.GetComponent<Renderer>();
         renderer.material.SetColor("_Color", Color.grey);
+    }
+
+    public void restart()
+    {
+        for(int i = 0;i<barsRotate.Length;i++)
+        {
+            var br = barsRotate[i];
+            br.curIndex = initialAngles[i];
+            br.gameObject.transform.eulerAngles = new Vector3(0, 0, br.curIndex* 45);
+            br.remainStep = br.initStep;
+        }
     }
 }
