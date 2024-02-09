@@ -12,9 +12,13 @@ using UnityEngine.UI;
  */
 /*
  * Level NIHAO initial angles
+ * initial: [5,0,1,4,6,2,7,0,3,4,2]
+ * win: [5,7,7,3,7,1,2,3,6,2,1]
  */
 /*
  * Level HEBREW initial angles
+ * initial: [2,7,5,3,4,7,2,6,4,7,2,3]
+ * win: [4,6,0,4,0,6,4,4,1,0,4,7]
  */
 public class SelectManager : MonoBehaviour
 {
@@ -109,9 +113,9 @@ public class SelectManager : MonoBehaviour
         for(int i = 0;i<barsRotate.Length;i++)
         {
             var br = barsRotate[i];
-            br.curIndex = initialAngles[i];
-            br.gameObject.transform.eulerAngles = new Vector3(0, 0, br.curIndex* 45);
+            br.setIndex(initialAngles[i]);
             br.remainStep = br.initStep;
         }
+        StepUsedup.gameObject.SetActive(false);
     }
 }
