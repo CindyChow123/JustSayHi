@@ -31,6 +31,7 @@ public class SelectManager : MonoBehaviour
 
     public TMP_Text stepNum;
     public GameObject StepUsedup;
+    public GameObject hint;
 
     public GameManager gm;
     
@@ -38,11 +39,13 @@ public class SelectManager : MonoBehaviour
     void Start()
     {
         StepUsedup = GameObject.Find("CanvasUsedup");
+        hint = GameObject.Find("CanvasShow");
         stepNum = gameObject.GetComponentInChildren<TMP_Text>();
         barsRotate = gameObject.GetComponentsInChildren<RotateDiscretControll>();
         gm = gameObject.GetComponentInParent<GameManager>();
         initAngles();
         StepUsedup.gameObject.SetActive(false);
+        hint.gameObject.SetActive(false);
         
     }
 

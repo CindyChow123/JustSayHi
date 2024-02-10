@@ -9,11 +9,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject Lose;
     [SerializeField] GameObject WinGame;
     [SerializeField] GameObject NoMore;
+    public int hintTime;
 
     // Start is called before the first frame update
     void Start()
     {
         currentIndex = 0;
+        hintTime = 2;
         // viewLevels = GameObject.FindGameObjectsWithTag("Round");
         initViewLevels();
         
@@ -93,5 +95,22 @@ public class GameManager : MonoBehaviour
         // viewLevels = GameObject.FindGameObjectsWithTag("Round");
         initViewLevels();
         NoMore.SetActive(false);
+    }
+
+    public void showHint()
+    {
+        StartCoroutine(showHintRoutine(hintTime));
+    }
+
+    IEnumerator showHintRoutine(int seconds)
+    {
+        viewLevels[currentIndex].GetComponent<SelectManager>().hint.SetActive(true);
+        int i = 0;
+        while (i < seconds)
+        {
+            i += 1;
+            yield return new WaitForSeconds(1.0f);
+        }
+        viewLevels[currentIndex].GetComponent<SelectManager>().hint.SetActive(false);
     }
 }
