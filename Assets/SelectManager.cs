@@ -12,7 +12,7 @@ using UnityEngine.UI;
  */
 /*
  * Level NIHAO initial angles
- * initial: [5,0,1,4,6,2,7,0,3,4,2]
+ * initial: [3,0,1,4,6,2,7,0,3,4,2]
  * win: [5,7,7,3,7,1,2,3,6,2,1]
  */
 /*
@@ -29,16 +29,30 @@ public class SelectManager : MonoBehaviour
     private ClickChoose clickChoose;
     private RotateDiscretControll rotateDiscret;
 
+<<<<<<< Updated upstream
     public TMP_Text stepNum;
     public GameObject StepUsedup;
+=======
+
+    public TMP_Text stepNum;
+    public GameObject StepUsedup;
+
+    public GameManager gm;
+    
+>>>>>>> Stashed changes
     // Start is called before the first frame update
     void Start()
     {
         StepUsedup = GameObject.Find("CanvasUsedup");
         stepNum = gameObject.GetComponentInChildren<TMP_Text>();
         barsRotate = gameObject.GetComponentsInChildren<RotateDiscretControll>();
+        gm = gameObject.GetComponentInParent<GameManager>();
         initAngles();
         StepUsedup.gameObject.SetActive(false);
+<<<<<<< Updated upstream
+=======
+        
+>>>>>>> Stashed changes
     }
 
     // Update is called once per frame
@@ -53,6 +67,8 @@ public class SelectManager : MonoBehaviour
             showStepUsedUp();
         }
     }
+
+    
     public void showStepUsedUp()
     {
         StepUsedup.gameObject.SetActive(true);
@@ -75,8 +91,22 @@ public class SelectManager : MonoBehaviour
                 break;
             }
         }
+<<<<<<< Updated upstream
         if(win) Debug.Log("YOU WIN!");
         else Debug.Log("YOU LOSE!");
+=======
+
+        if (win)
+        {
+            Debug.Log("YOU WIN!");
+            gm.win();
+        }
+        else
+        {
+            Debug.Log("YOU LOSE!");
+            gm.lose();
+        }
+>>>>>>> Stashed changes
     }
 
     public bool checkEnd()
@@ -117,5 +147,13 @@ public class SelectManager : MonoBehaviour
             br.remainStep = br.initStep;
         }
         StepUsedup.gameObject.SetActive(false);
+<<<<<<< Updated upstream
     }
+=======
+        // SceneManager.LoadScene("Linguo");
+    }
+
+
+    
+>>>>>>> Stashed changes
 }
