@@ -38,9 +38,9 @@ public class SelectManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StepUsedup = GameObject.Find("CanvasUsedup");
-        hint = GameObject.Find("CanvasShow");
-        stepNum = gameObject.GetComponentInChildren<TMP_Text>();
+        // StepUsedup = GameObject.Find("CanvasUsedup");
+        // hint = GameObject.Find("CanvasShow");
+        // stepNum = gameObject.GetComponentInChildren<TMP_Text>();
         barsRotate = gameObject.GetComponentsInChildren<RotateDiscretControll>();
         gm = gameObject.GetComponentInParent<GameManager>();
         initAngles();
