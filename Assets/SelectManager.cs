@@ -30,7 +30,7 @@ public class SelectManager : MonoBehaviour
     private ClickChoose clickChoose;
     private RotateDiscretControll rotateDiscret;
 
-    private GameObject[] viewLevels;
+    [SerializeField] private GameObject[] viewLevels;
 
     private int currentIndex = 0;
     public TMP_Text stepNum;
