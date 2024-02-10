@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 /*[0,1,2,3,4,5,6,7] = [0,45,90,135,180,225,270,315]
  * Level HI initial angle index
@@ -29,8 +30,15 @@ public class SelectManager : MonoBehaviour
     private ClickChoose clickChoose;
     private RotateDiscretControll rotateDiscret;
 
+    private GameObject[] viewLevels;
+
+    private int currentIndex = 0;
     public TMP_Text stepNum;
     public GameObject StepUsedup;
+    
+    [SerializeField] GameObject Lose;
+    [SerializeField] GameObject WinGame;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +47,21 @@ public class SelectManager : MonoBehaviour
         barsRotate = gameObject.GetComponentsInChildren<RotateDiscretControll>();
         initAngles();
         StepUsedup.gameObject.SetActive(false);
+        Lose.SetActive(false);
+        WinGame.SetActive(false);
+        if (viewLevels != null && viewLevels.Length > 0)
+        {
+            foreach (var level in viewLevels)
+            {
+                level.SetActive(false);
+            }
+
+            viewLevels[0].SetActive(true);
+        }
+        else
+        {
+            Debug.LogError("No levels");
+        }
     }
 
     // Update is called once per frame
@@ -56,6 +79,7 @@ public class SelectManager : MonoBehaviour
     public void showStepUsedUp()
     {
         StepUsedup.gameObject.SetActive(true);
+        
     }
     public void initAngles()
     {
@@ -75,8 +99,19 @@ public class SelectManager : MonoBehaviour
                 break;
             }
         }
-        if(win) Debug.Log("YOU WIN!");
-        else Debug.Log("YOU LOSE!");
+
+        if (win)
+        {
+            Debug.Log("YOU WIN!");
+            Lose.SetActive(false);
+            WinGame.SetActive(true);
+        }
+        else
+        {
+            Debug.Log("YOU LOSE!");
+            WinGame.SetActive(false);
+            Lose.SetActive(true);
+        }
     }
 
     public bool checkEnd()
@@ -117,5 +152,26 @@ public class SelectManager : MonoBehaviour
             br.remainStep = br.initStep;
         }
         StepUsedup.gameObject.SetActive(false);
+        SceneManager.LoadScene("Linguo");
     }
+
+    public void nextLevel()
+    {
+        if (currentIndex >= 0 && currentIndex < viewLevels.Length)
+        {
+            viewLevels[currentIndex].SetActive(false);
+        }
+
+        currentIndex++;
+        
+        if (currentIndex < viewLevels.Length)
+        {
+            viewLevels[currentIndex].SetActive(true);
+        }
+        else
+        {
+            Debug.Log("Won all Games!");
+        }
+    }
+    
 }

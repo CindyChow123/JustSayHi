@@ -292,7 +292,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &16189581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3359,6 +3359,7 @@ MonoBehaviour:
   winAngles: 0500000007000000070000000300000007000000010000000200000003000000060000000200000001000000
   stepNum: {fileID: 0}
   StepUsedup: {fileID: 0}
+  Lose: {fileID: 0}
 --- !u!4 &381605342
 Transform:
   m_ObjectHideFlags: 0
@@ -10500,6 +10501,7 @@ MonoBehaviour:
   winAngles: 040000000600000000000000040000000000000006000000040000000400000001000000000000000400000007000000
   stepNum: {fileID: 0}
   StepUsedup: {fileID: 0}
+  Lose: {fileID: 0}
 --- !u!4 &1023817061
 Transform:
   m_ObjectHideFlags: 0
@@ -15955,6 +15957,7 @@ MonoBehaviour:
   winAngles: 00000000000000000000000006000000
   stepNum: {fileID: 0}
   StepUsedup: {fileID: 0}
+  Lose: {fileID: 1436008769}
 --- !u!1 &1614171784
 GameObject:
   m_ObjectHideFlags: 0
@@ -18024,7 +18027,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1772076677
 MonoBehaviour:
   m_ObjectHideFlags: 0
