@@ -29,17 +29,11 @@ public class SelectManager : MonoBehaviour
     private ClickChoose clickChoose;
     private RotateDiscretControll rotateDiscret;
 
-<<<<<<< Updated upstream
-    public TMP_Text stepNum;
-    public GameObject StepUsedup;
-=======
-
     public TMP_Text stepNum;
     public GameObject StepUsedup;
 
     public GameManager gm;
     
->>>>>>> Stashed changes
     // Start is called before the first frame update
     void Start()
     {
@@ -49,10 +43,7 @@ public class SelectManager : MonoBehaviour
         gm = gameObject.GetComponentInParent<GameManager>();
         initAngles();
         StepUsedup.gameObject.SetActive(false);
-<<<<<<< Updated upstream
-=======
         
->>>>>>> Stashed changes
     }
 
     // Update is called once per frame
@@ -91,10 +82,8 @@ public class SelectManager : MonoBehaviour
                 break;
             }
         }
-<<<<<<< Updated upstream
         if(win) Debug.Log("YOU WIN!");
         else Debug.Log("YOU LOSE!");
-=======
 
         if (win)
         {
@@ -106,7 +95,6 @@ public class SelectManager : MonoBehaviour
             Debug.Log("YOU LOSE!");
             gm.lose();
         }
->>>>>>> Stashed changes
     }
 
     public bool checkEnd()
@@ -147,13 +135,8 @@ public class SelectManager : MonoBehaviour
             br.remainStep = br.initStep;
         }
         StepUsedup.gameObject.SetActive(false);
-<<<<<<< Updated upstream
-    }
-=======
         // SceneManager.LoadScene("Linguo");
     }
 
 
-    
->>>>>>> Stashed changes
 }
