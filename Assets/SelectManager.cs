@@ -12,7 +12,7 @@ using UnityEngine.UI;
  */
 /*
  * Level NIHAO initial angles
- * initial: [5,0,1,4,6,2,7,0,3,4,2]
+ * initial: [3,0,1,4,6,2,7,0,3,4,2]
  * win: [5,7,7,3,7,1,2,3,6,2,1]
  */
 /*
@@ -31,14 +31,22 @@ public class SelectManager : MonoBehaviour
 
     public TMP_Text stepNum;
     public GameObject StepUsedup;
+    public GameObject hint;
+
+    public GameManager gm;
+    
     // Start is called before the first frame update
     void Start()
     {
         StepUsedup = GameObject.Find("CanvasUsedup");
+        hint = GameObject.Find("CanvasShow");
         stepNum = gameObject.GetComponentInChildren<TMP_Text>();
         barsRotate = gameObject.GetComponentsInChildren<RotateDiscretControll>();
+        gm = gameObject.GetComponentInParent<GameManager>();
         initAngles();
         StepUsedup.gameObject.SetActive(false);
+        hint.gameObject.SetActive(false);
+        
     }
 
     // Update is called once per frame
@@ -53,6 +61,8 @@ public class SelectManager : MonoBehaviour
             showStepUsedUp();
         }
     }
+
+    
     public void showStepUsedUp()
     {
         StepUsedup.gameObject.SetActive(true);
@@ -77,6 +87,17 @@ public class SelectManager : MonoBehaviour
         }
         if(win) Debug.Log("YOU WIN!");
         else Debug.Log("YOU LOSE!");
+
+        if (win)
+        {
+            Debug.Log("YOU WIN!");
+            gm.win();
+        }
+        else
+        {
+            Debug.Log("YOU LOSE!");
+            gm.lose();
+        }
     }
 
     public bool checkEnd()
@@ -117,5 +138,8 @@ public class SelectManager : MonoBehaviour
             br.remainStep = br.initStep;
         }
         StepUsedup.gameObject.SetActive(false);
+        // SceneManager.LoadScene("Linguo");
     }
+
+
 }
